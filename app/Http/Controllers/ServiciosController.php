@@ -3,17 +3,26 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Models\Servicio;
 
 class ServiciosController extends Controller
 {
-    public function servicios(){
-        $servicios = [
-            ['titulo' => 'Servicio 01'],
-            ['titulo' => 'Servicio 02'],
-            ['titulo' => 'Servicio 03'],
-            ['titulo' => 'Servicio 04'],
-            ['titulo' => 'Servicio 05'],
-        ];
+    public function index(){
+        // $servicios = DB::table('servicios')->get();
+        // $servicios = Servicio::orderby('titulo','asc')->get();
+        $servicios = Servicio::latest()->paginate(2);
+
         return view('servicios',compact('servicios'));
     }
+
+    public function show($id){
+
+        return view('show',[
+            'servicio' => Servicio::find($id)
+        ]);
+
+        // return Servicio::find($id);
+    }
+
 }

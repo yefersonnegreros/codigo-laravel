@@ -1,22 +1,27 @@
 @extends('layout')
 
-@section('title','Servicio')
+@section('title', 'Servicio')
 
 @section('content')
-    <h2>Servicios</h2>
+    <link rel="stylesheet" href="{{ asset('css/servicios.css') }}">
 
-    <ul>
-        
-        @if ($servicios)
-            @foreach ($servicios as $item)
-                <li>{{$item['titulo']}}</li>
-            @endforeach
-        @else
-            <li>No existe ningun servicio que mostrar aqui</li>
-        @endif
-            
+    <div class="container-servicios">
+        <h2 class="titulo-servicio">Servicios</h2>
 
-        
-    </ul>
+        <ul class="lista-servicios">
+            @if ($servicios)
+                @foreach ($servicios as $servicio)
+                    <li class="item-servicio">
+                        <a href="{{ route('servicios.show', $servicio) }}" class="enlace-servicio">{{ $servicio->titulo }}</a>
+                    </li>
+                @endforeach
+            @else
+                <li class="mensaje-no-servicios">No existe ningún servicio que mostrar aquí</li>
+            @endif
+        </ul>
 
+        <div class="paginacion">
+            {{ $servicios->links('pagination::bootstrap-5') }}
+        </div>
+    </div>
 @endsection
