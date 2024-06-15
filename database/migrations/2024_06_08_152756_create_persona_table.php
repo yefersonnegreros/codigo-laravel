@@ -16,13 +16,13 @@ return new class extends Migration
             $table->char('cPerApellido', 50)->nullable();
             $table->char('cPerNombre', 50)->nullable();
             $table->string('cPerDireccion', 100)->nullable();
-            $table->date('dPerFecNac')->nullable(false);
+            $table->date('dPerFechaNac')->nullable(false);
             $table->integer('nPerEdad')->nullable(false);
-            $table->char('cPerSexo', 15)->default('Masculino')->nullable();
+            // $table->char('cPerSexo', 15)->default('Masculino')->nullable();
             $table->decimal('nPerSueldo', 6, 2)->nullable(false);
-            $table->string('cPerRnd', 50)->nullable(false);
-            $table->char('nPerEstado', 1)->default('1')->nullable(false);
-            $table->string('remember_token', 100)->nullable();
+            // $table->string('cPerRnd', 50)->nullable(false);
+            // $table->char('nPerEstado', 1)->default('1')->nullable(false);
+            // $table->string('remember_token', 100)->nullable();
             $table->timestamps();
         });
     }

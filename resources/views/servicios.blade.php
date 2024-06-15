@@ -5,8 +5,16 @@
 @section('content')
     <link rel="stylesheet" href="{{ asset('css/servicios.css') }}">
 
+    <tr>
+        <td colspan="4">
+            <a href="{{route('servicios.create')}}" class="btn-primary"><i class="bi bi-plus"></i> Nuevo Servicio</a>
+        </td>
+    </tr>   
+    
+
+
     <div class="container-servicios">
-        <h2 class="titulo-servicio">Servicios</h2>
+        <h2 class="titulo-servicio">Lista Servicios</h2>
 
         <ul class="lista-servicios">
             @if ($servicios)

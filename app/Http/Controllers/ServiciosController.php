@@ -25,4 +25,32 @@ class ServiciosController extends Controller
         // return Servicio::find($id);
     }
 
+
+    public function create(){
+        return view('create');
+    }
+
+    public function store(){
+        //Primer Metodo
+        // $titulo = request('titulo');
+        // $descripcion = request('descripcion');
+
+        // Servicio::create([
+        //     'titulo' => $titulo,
+        //     'descripcion' => $descripcion
+        // ]);
+
+        // return redirect()->route('servicios');
+
+        $camposv = request()->validate([
+            'titulo' => 'required',
+            'descripcion' => 'required'
+        ]);
+
+        //Almacenamos en la BD usando el modelo Servicio
+        Servicio::create($camposv);
+        return redirect()->route('servicios');
+    }
+
+
 }
