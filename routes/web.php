@@ -6,7 +6,7 @@ use App\Http\Controllers\Servicios3Controller;
 use App\Http\Controllers\ServiciosController;
 
 use App\Http\Controllers\PersonaController;
-
+use App\Http\Controllers\ContactoController;
 
 $servicios = [
     // ['titulo' => 'Servicio 01'],
@@ -46,4 +46,4 @@ Route::delete('personas/{nPerCodigo}', [PersonaController::class, 'destroy'])->n
 
 Route::view('contacto','contacto')->name('contacto');
 
-
+Route::post('contacto', [ContactoController::class, 'store'])->name('contacto.store');
