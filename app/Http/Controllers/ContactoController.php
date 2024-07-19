@@ -35,7 +35,9 @@ class ContactoController extends Controller
         
         Mail::to('yefers@gmail.com')->send(new MensajeRecibido($mensaje));
 
-        return 'Datos validados y correo enviado';
+        // return 'Datos validados y correo enviado';
+        // return redirect()->route('contacto')->with('status', 'Datos validados y correo enviado');
+            return back()->with('estado','Datos validados y correo enviado');
     }
 
 
