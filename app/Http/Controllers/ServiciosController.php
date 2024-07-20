@@ -9,6 +9,11 @@ use App\Http\Requests\CreateServicioRequest;
 
 class ServiciosController extends Controller
 {
+    public function __construct()
+    {
+       // $this->middleware('auth')->only('create','edit');
+        $this->middleware('auth')->except('index','show');
+    }
     public function index(){
         // $servicios = DB::table('servicios')->get();
         // $servicios = Servicio::orderby('titulo','asc')->get();

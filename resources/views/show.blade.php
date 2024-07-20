@@ -6,6 +6,7 @@
 
 @section('content')
 
+    @auth
     <table class="tabla-servicio">
         <tr>
             <td colspan="4" class="titulo-servicio">{{$servicio->titulo}}</td>
@@ -25,13 +26,9 @@
                 
             </form>
         </tr>
-
-
-
     </table>
+    @endauth
     <div class="pie-tarjeta text-center">
-        {{-- <a href="{{ route('servicios') }}" class="btn-personalizado">Volver a la Lista</a> --}}
         <a href="{{ route('servicios.index') }}" class="btn-personalizado">Volver a la Lista</a>
-
     </div>
 @endsection
