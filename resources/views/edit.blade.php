@@ -9,10 +9,11 @@
         <tr>
             <th colspan="4">Editar Servicio</th>
         </tr>
-        
+        <img src="{{ asset('storage/' . $servicio->image) }}" alt="{{ $servicio->titulo }}" class="imagen-previa">
+
         @include('partials.validations-errors')
         <table>
-            <form action="{{ route('servicios.update', $servicio) }}" method="post">
+            <form action="{{ route('servicios.update', $servicio) }}" method="post" enctype="multipart/form-data">
             
             @method('PATCH')
         

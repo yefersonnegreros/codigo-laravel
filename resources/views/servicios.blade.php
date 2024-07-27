@@ -20,7 +20,12 @@
             @if ($servicios)
                 @foreach ($servicios as $servicio)
                     <li class="item-servicio">
-                        <a href="{{ route('servicios.show', $servicio->id) }}" class="enlace-servicio">{{ $servicio->titulo }}</a>
+                        <span class="texto-servicio">
+                            <a href="{{ route('servicios.show', $servicio->id) }}" class="enlace-servicio">{{ $servicio->titulo }}</a>
+                        </span>
+                        @if ($servicio->image)
+                            <img src="{{ asset('storage/' . $servicio->image) }}" alt="{{$servicio->titulo}}" class="imagen-servicio">
+                        @endif
                     </li>
                 @endforeach
             @else
